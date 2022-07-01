@@ -29,7 +29,7 @@ class Database
     {
         try {
             $statement = $this->exec($query, $params);
-            $result = $statement->get_result->fetch_all(MYSQLI_ASSOC);
+            $result = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
             $statement->close(); 
 
             return $result;

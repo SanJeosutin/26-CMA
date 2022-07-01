@@ -6,10 +6,12 @@ class UserController extends BaseController
 {
     private $errHeader = '';
     private $errDescription = '';
-    private $reqMethod = $_SERVER['REQUEST_METHOD'];
+    private $reqMethod = '';
 
     public function listAllUsers()
     {
+        $this->reqMethod = $_SERVER['REQUEST_METHOD'];
+        
         if(strtoupper($this->reqMethod) == 'GET'){
             try{
                 $userModel = new UserModel();
