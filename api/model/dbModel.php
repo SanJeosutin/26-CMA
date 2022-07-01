@@ -51,7 +51,7 @@ class Database
             }
 
             if ($params) {
-                $statement->bind_param(...$params);
+                $statement->bind_param($params[0], $params[1]);
             }
 
             $statement->execute();
