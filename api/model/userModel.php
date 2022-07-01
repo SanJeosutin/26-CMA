@@ -7,5 +7,10 @@ class UserModel extends Database
     {
         return $this->select("SELECT * FROM users");
     }
+
+    public function getUserByName($name)
+    {
+        return $this->select("SELECT * FROM users WHERE username = ?", array('s', $name));
+    }
 }
 ?>

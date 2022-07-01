@@ -18,9 +18,9 @@ class BaseController
     }
 
     /* return query vars from incoming request */
-    protected function getQueryParams()
+    protected function getParams()
     {
-        return parse_str($_SERVER['QUERY_STRING'], $query);
+        return $_GET;
     }
 
     /* send API request output to client */
