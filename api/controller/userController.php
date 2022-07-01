@@ -7,7 +7,6 @@ class UserController extends BaseController
     private $errHeader = '';
     private $errDescription = '';
     private $reqMethod = '';
-    private $params = $this->getParams();
 
     public function list()
     {
@@ -42,7 +41,7 @@ class UserController extends BaseController
         if(strtoupper($this->reqMethod) == 'GET'){
             try{
                 $userModel = new UserModel();
-                $uName = isset($params['username']) ? $params['username'] : ''; 
+                $uName = isset($_GET['username']) ? $_GET['username'] : ''; 
                 $user = $userModel->getUserByName($uName);
                 $resData = json_encode($user);
 

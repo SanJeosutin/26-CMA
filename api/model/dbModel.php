@@ -1,6 +1,6 @@
 <?php
 
-require_once('../classes/DotEnv.class.php');
+require_once ROOT_DIR . '/classes/DotEnv.class.php';
 (new DotEnv(__DIR__ . '/../../.env'))->load();
 
 class Database
