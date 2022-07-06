@@ -13,7 +13,7 @@ class UserModel extends Database
 
     public function getUserByName($name)
     {
-        return $this->select('SELECT * FROM users WHERE username LIKE "%?%"', array('s', $name));
+        return $this->select('SELECT * FROM users WHERE username LIKE ?', array('s', $name));
     }
 
     /**
@@ -22,17 +22,17 @@ class UserModel extends Database
      */
     public function getUserByFirstName($fName)
     {
-        return $this->select('SELECT * FROM users WHERE FirstName LIKE "%?%"', array('s', $fName));
+        return $this->select('SELECT * FROM users WHERE FirstName  LIKE ?', array('s', $fName));
     }
 
     public function getUserByLastName($lName)
     {
-        return $this->select('SELECT * FROM users WHERE LastName LIKE "%?%"', array('s', $lName));
+        return $this->select('SELECT * FROM users WHERE LastName  LIKE ?', array('s', $lName));
     }
 
     public function getUserByEmail($uEmail)
     {
-        return $this->select('SELECT * FROM users WHERE Email LIKE "%?%"', array('s', $uEmail));
+        return $this->select('SELECT * FROM users WHERE Email  LIKE ?', array('s', $uEmail));
     }
 
 }
