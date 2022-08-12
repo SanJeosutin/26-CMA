@@ -1,6 +1,10 @@
 <?php
 require_once ROOT_DIR . '/model/dbModel.php';
 
+/*
+ * User model that are used to interact with the database
+ * Work mainly with UserController
+ */
 class UserModel extends Database
 {
     /**

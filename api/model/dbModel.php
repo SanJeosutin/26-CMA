@@ -3,10 +3,14 @@
 require_once ROOT_DIR . '/classes/DotEnv.class.php';
 (new DotEnv(__DIR__ . '/../../.env'))->load();
 
+/*
+ * Database class, used to connect to the database and execute queries
+ */
 class Database
 {
     protected $conn = null;
 
+    /* initialised when class called */
     public function __construct()
     {
         $this->host = getenv('DB_HOST');
@@ -14,6 +18,7 @@ class Database
         $this->pass = getenv('DB_PASS');
         $this->db = getenv('DB_NAME');
 
+        /* try to connect to database */
         try {
             $this->conn = new mysqli($this->host, $this->user, $this->pass, $this->db);
 
@@ -25,6 +30,7 @@ class Database
         }
     }
 
+    /* create a statement / query */
     public function select($query="", $params=array())
     {
         try {
@@ -41,6 +47,7 @@ class Database
         return false;
     }
 
+    /* execute a query */
     private function exec($query="", $params=array())
     {
         try {
