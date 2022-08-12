@@ -8,6 +8,7 @@ class UserController extends BaseController
     private $errDescription = '';
     private $reqMethod = '';
 
+    /* send out list of all users */
     public function list()
     {
         $this->reqMethod = $_SERVER['REQUEST_METHOD'];
@@ -34,6 +35,7 @@ class UserController extends BaseController
         }
     }
 
+    /* find a specific user from the pool of users */
     public function find()
     {
         $this->reqMethod = $_SERVER['REQUEST_METHOD'];
