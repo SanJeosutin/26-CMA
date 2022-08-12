@@ -1,9 +1,11 @@
 <?php
 
 require_once ROOT_DIR . '/classes/Controller.class.php';
+
 /*
  * Base controller that containts the base methods for all controllers
  */
+
 class BaseController
 {
     /* called when there isn't any methods or action available */

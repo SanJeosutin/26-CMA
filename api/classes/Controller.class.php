@@ -1,6 +1,6 @@
 <?php
 
-class ControllerValidator
+class ControllerValidator extends baseController
 {
     /*
      * $arg_0 = request method
@@ -38,9 +38,9 @@ class ControllerValidator
         }
 
         if(!$errDescription){
-            return $resData . array('Content-Type: application/json', 'HTTP/1.1 200 OK');
+            (new self)->output($resData , array('Content-Type: application/json', 'HTTP/1.1 200 OK'));
         } else {
-           return array('error' => $errDescription) . array('Content-Type: application/json', $errHeader);
+           (new self)->output(array('error' => $errDescription) . array('Content-Type: application/json', $errHeader));
         }
     }
 }
