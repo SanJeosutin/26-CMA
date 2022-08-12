@@ -10,7 +10,7 @@ class UserModel extends Database
 
     public function getUsers()
     {
-        return $this->select("SELECT * FROM user ORDER BY user_id ASC");
+        return $this->select("SELECT * FROM user ORDER BY UserId ASC");
     }
 
     public function getUserById($uID)
