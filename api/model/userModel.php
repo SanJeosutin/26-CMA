@@ -30,12 +30,15 @@ class UserModel extends Database
         return $this->select('SELECT * FROM users WHERE LastName  LIKE ?', array('s', $lName));
     }
 
-    /***
     public function getUserByEmail($uEmail)
     {
         return $this->select('SELECT * FROM users WHERE Email  LIKE ?', array('s', $uEmail));
     }
-    */
+
+    public function getUserById($uID)
+    {
+        return $this->select('SELECT * FROM users WHERE UId  LIKE ?', array('s', $uID));
+    }
 
 }
 ?>
