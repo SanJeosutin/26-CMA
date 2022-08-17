@@ -1,42 +1,44 @@
 <?php
-require_once ROOT_DIR . '/model/dbModel.php';
+require_once ROOT_DIR . '/classes/Model.class.php';
 
 /*
  * User model that are used to interact with the database
  * Work mainly with UserController
  */
-class UserModel extends Database
+class UserModel extends Model
 {
     /**
      * User API according to Jenna's Schema.
      * Check Semester 2 Folder.
      */
 
+     /*
+      ! Still work in progress.
+      */
+
     public function getUsers()
     {
-        return $this->select("SELECT * FROM user ORDER BY UserId ASC");
+        return Model::GET('user', 'UserId');
     }
 
     public function getUserById($uID)
     {
-        return $this->select('SELECT * FROM user WHERE UserId LIKE ?', array('s', $uID));
+        return Model::GET('user', 'UserId', $uID);
     }
 
     public function getUserByFirstName($fName)
     {
-        return $this->select('SELECT * FROM user WHERE UserFirstName LIKE ?', array('s', $fName));
+        return Model::GET('user', 'UserId', $fName);
     }
 
     public function getUserByLastName($lName)
     {
-        return $this->select('SELECT * FROM user WHERE UserLastName LIKE ?', array('s', $lName));
+        return Model::GET('user', 'UserId', $lName);
     }
 
     public function getUserByEmail($uEmail)
     {
-        return $this->select('SELECT * FROM user WHERE UserEmail LIKE ?', array('s', $uEmail));
+        return Model::GET('user', 'UserId', $uEmail);
     }
-
-
 }
 ?>
