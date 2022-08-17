@@ -52,7 +52,7 @@ class ControllerValidator extends baseController
         if(!$errDescription){
             (new self)->output($resData , array('Content-Type: application/json', 'HTTP/1.1 200 OK'));
         } else {
-           (new self)->output(array('error' => $errDescription) . array('Content-Type: application/json', $errHeader));
+            (new self)->output($errDescription, array('Content-Type: text/plain', $errHeader));
         }
     }
 }
