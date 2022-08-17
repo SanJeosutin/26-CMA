@@ -12,9 +12,14 @@ class SubmissionModel extends Database
      * Check Semester 2 Folder.
      */
 
-    public function getSubmission()
+    public function getSubmissions()
     {
         return $this->select("SELECT * FROM submission ORDER BY submissionId ASC");
+    }
+
+    public function getSubmissionById($sID)
+    {
+        return $this->select('SELECT * FROM submission WHERE submissionId LIKE ?', array('s', $sID));
     }
 
 

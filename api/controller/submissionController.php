@@ -5,10 +5,13 @@
  */
 class SubmissionController extends BaseController
 {
+    private $methodClass = 'SubmissionModel';
+    
     /* send out list of all users */
     public function list()
     {
         ControllerValidator::ValidateRequestGET(
+            $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getSubmissions'
         );
@@ -18,6 +21,7 @@ class SubmissionController extends BaseController
     public function findSubmissionById()
     {
         ControllerValidator::ValidateRequestGET(
+            $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getSubmissionById',
             'id'
