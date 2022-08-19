@@ -5,9 +5,9 @@ class Model extends Database
 {
     
     /*
-     * $arg_0 = table name
-     * $arg_1 = column name
-     * $arg_2 = column value
+     * $arg_0 = [string] table name
+     * $arg_1 = [string] / [array] column name(s)
+     * $arg_2 = [string] / [array] column value(s)
      */
 
     static protected function GET()
@@ -20,6 +20,15 @@ class Model extends Database
 
         return (new self)->select("SELECT * FROM $arg_0 WHERE $arg_1 LIKE ?", array('s', $arg_2));
     }
+
+    
+    static protected function POST()
+    {
+        extract(func_get_args(), EXTR_PREFIX_ALL, "arg");
+
+        return (new self)->select("INSERT INTO $arg_0 VALUES ($arg_2)");
+    }
+    
     /*
      ! -*-*-*-*-*-*NOTICE-*-*-*-*-*-*
      -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
@@ -28,13 +37,6 @@ class Model extends Database
      -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
      */
 
-    //! have not been tested yet.
-    static protected function POST()
-    {
-        extract(func_get_args(), EXTR_PREFIX_ALL, "arg");
-
-        return (new self)->select("INSERT INTO $arg_0 ($arg_1) VALUES ($arg_2)");
-    }
 
     static protected function PUT()
     {

@@ -12,13 +12,13 @@ class ControllerValidator extends baseController
      * $arg_4 = param id
      */
 
+     private static $errHeader = '';
+     private static $errDescription = '';
+     private static $paramVal = '';
+
     /* static class to validate GET Request */
     static function ValidateRequestGET()
     {
-        $errHeader = '';
-        $errDescription = '';
-        $paramVal = '';
-        
         /* create a dynamic params */
         extract(func_get_args(), EXTR_PREFIX_ALL, "arg");
         
@@ -30,8 +30,8 @@ class ControllerValidator extends baseController
 
                 /* check if 4rd param exist, when so it'll find the value that are requested */
                 if (isset($arg_3)){
-                    $paramVal = isset($_GET[$arg_3]) ? $_GET[$arg_3] : ''; 
-                    $rawData = $model->$arg_2($paramVal);
+                    self::$paramVal = isset($_GET[$arg_3]) ? $_GET[$arg_3] : ''; 
+                    $rawData = $model->$arg_2(self::$paramVal);
                 }else{
                     $rawData = $model->$arg_2();
                 }
@@ -40,21 +40,27 @@ class ControllerValidator extends baseController
                 $resData = json_encode($rawData);
 
             } catch (Exception $e) {
-                $errDescription = "Something went wrong :/ " . $e->getMessage();
-                $errHeader = "HTTP/1.1 500 Internal Server Error";
+                self::$errDescription = "Something went wrong :/ " . $e->getMessage();
+                self::$errHeader = "HTTP/1.1 500 Internal Server Error";
             }
         } else {
-            $errDescription = "Cannot process request with method " . $arg_1;
-            $errHeader = "HTTP/1.1 422 Unprocessable Entity";
+            self::$errDescription = "Cannot process request with method " . $arg_1;
+            self::$errHeader = "HTTP/1.1 422 Unprocessable Entity";
         }
 
         /* if no error rise, pass the data as raw json */
-        if(!$errDescription){
+        if(!self::$errDescription){
             (new self)->output($resData , array('Content-Type: application/json', 'HTTP/1.1 200 OK'));
         } else {
-            (new self)->output($errDescription, array('Content-Type: text/plain', $errHeader));
+            (new self)->output(self::$errDescription, array('Content-Type: text/plain', self::$errHeader));
         }
     }
+    /*
+    static function ValidateRequestPUT()
+    {
+        return;
+    }
+    */
 }
 
 ?>
