@@ -14,11 +14,6 @@ class UserModel extends Model
 
     private $tableName = 'user';
 
-
-    /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-    // !    CURRENT IMPLEMENTATION 
-    /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-
     /* GET IMPLEMENTATION */
     public function getUsers()
     {
@@ -56,12 +51,12 @@ class UserModel extends Model
     }
 
     /* POST IMPLEMENTATION */
-    /*
-    public function createUser()
+    public function postNewUser()
     {
-        #return Model::POST($this->tableName, );
+        $arrValues = array();
+        
+        return Model::POST($this->tableName, $arrValues);
     }
-    */
     
     /* PUT IMPLEMENTATION */
     /*
@@ -87,67 +82,8 @@ class UserModel extends Model
     */
 
     /* DELETE IMPLEMENTATION */
-
-
-    /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-    // !        NEW IMPLEMENTATION
-    /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-
-    // Eg: userModel->GET('ID');
-    // Honestly, this implementation is not that good.
-    // I need to make adjustment to the whole structure the API codebase.
-    // Not worth the time to do it.
-    /*
-    public function GET()
+    public function deleteUserById($uId)
     {
-        $col = '';
-        extract(func_get_args(), EXTR_PREFIX_ALL, "arg");
-
-        switch ($arg_0) {
-            case 'all':
-                return Model::GET('user', 'UserId');
-
-            case 'id':
-                $col = 'UserId';
-                break;
-
-            case 'firstName':
-                $col = 'UserFirstName';
-                break;
-
-            case 'lastName':
-                $col = 'UserLastName';
-                break;
-
-            case 'email':
-                $col = 'UserEmail';
-                break;
-
-            case 'phoneNumber':
-                $col = 'UserPhoneNo';
-                break;
-
-            case 'role':
-                $col = 'UserRole';
-                break;
-
-            default:
-                return null;
-        }
-
-        return Model::GET('user', $col, $arg_1);
+        return Model::DELETE($this->tableName, 'UserId', $uId);
     }
-
-    public function POST()
-    {
-    }
-
-    public function PUT()
-    {
-    }
-
-    public function DELETE()
-    {
-    }
-    */
 }
