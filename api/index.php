@@ -4,7 +4,7 @@ require __DIR__ . '/inc/bootstrap.php';
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode('/', $uri);
 
-$validArgs = array('user', 'submission');
+$validArgs = array('user', 'submission', 'conference', 'review');
 
 # testing API only, will be removed later-ish
 if(isset($uri[3]) && !in_array($uri[3], $validArgs) || !isset($uri[4])){

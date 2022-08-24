@@ -41,7 +41,7 @@ class UserController extends BaseController
         );
     }
 
-    public function findUserByByLastName()
+    public function findUserByLastName()
     {
         ControllerValidator::ValidateRequestGET(
             $this->methodClass,
