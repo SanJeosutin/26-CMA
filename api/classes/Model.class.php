@@ -26,7 +26,7 @@ class Model extends Database
     {
         extract(func_get_args(), EXTR_PREFIX_ALL, "arg");
 
-        return (new self)->select("INSERT INTO $arg_0 VALUES ($arg_2)");
+        return (new self)->select("INSERT INTO $arg_0 VALUES ($arg_1)");
     }
     
     /*
