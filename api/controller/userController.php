@@ -7,14 +7,10 @@ class UserController extends BaseController
 {
     private $methodClass = 'UserModel';
 
-    /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-    // !    CURRENT IMPLEMENTATION 
-    /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-
     /* GET IMPLEMENTATION */
     public function list()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getUsers'
@@ -23,7 +19,7 @@ class UserController extends BaseController
 
     public function findUserById()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getUserById',
@@ -33,7 +29,7 @@ class UserController extends BaseController
 
     public function findUserByFirstName()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getUserByFirstName',
@@ -43,7 +39,7 @@ class UserController extends BaseController
 
     public function findUserByLastName()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getUserByLastName',
@@ -53,7 +49,7 @@ class UserController extends BaseController
 
     public function findUserByEmail()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getUserByEmail',
@@ -63,7 +59,7 @@ class UserController extends BaseController
 
     public function findUserByPhoneNo()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getUserByPhoneNo',
@@ -73,7 +69,7 @@ class UserController extends BaseController
 
     public function findUserByRole()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getUserByRole',
@@ -82,12 +78,25 @@ class UserController extends BaseController
     }
 
     /* POST IMPLEMENTATION */
+    public function createUser()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'createUser',
+            'firstName',
+            'lastName',
+            'email',
+            'phoneNo',
+            'role'
+        );
+    }
 
     /* PUT IMPLEMENTATION */
     /*
     public function updateUserByFirstName()
     {
-        ControllerValidator::ValidateRequestPUT(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'updateUserByFirstName',
@@ -98,7 +107,7 @@ class UserController extends BaseController
 
     public function updateUserByLastName()
     {
-        ControllerValidator::ValidateRequestPUT(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'updateUserByLastName',
@@ -109,7 +118,7 @@ class UserController extends BaseController
 
     public function updateUserByEmail()
     {
-        ControllerValidator::ValidateRequestPUT(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'updateUserByEmail',
@@ -120,7 +129,7 @@ class UserController extends BaseController
 
     public function updateUserByPhoneNo()
     {
-        ControllerValidator::ValidateRequestPUT(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'updateUserByPhoneNo',
@@ -132,32 +141,13 @@ class UserController extends BaseController
 
     /* DELETE IMPLEMENTATION */
 
-    /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-    // !        NEW IMPLEMENTATION
-    /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-    /*
-    public function find()
+    public function removeUserById()
     {
-        extract(func_get_args(), EXTR_PREFIX_ALL, "arg");
-
-        switch ($arg_0) {
-            case 'users':
-                ControllerValidator::ValidateRequestGET(
-                    $this->methodClass,
-                    $_SERVER['REQUEST_METHOD'],
-                    'GET'
-                );
-                break;
-
-            case 'id':
-                ControllerValidator::ValidateRequestGET(
-                    $this->methodClass,
-                    $_SERVER['REQUEST_METHOD'],
-                    'GET',
-                    'id'
-                );
-                break;
-        }
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'deleteUserById',
+            'id'
+        );
     }
-    */
 }

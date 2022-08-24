@@ -10,7 +10,7 @@ class SubmissionController extends BaseController
     /* send out list of all users */
     public function list()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getSubmissions'
@@ -20,7 +20,7 @@ class SubmissionController extends BaseController
     /* find a specific user by Id */
     public function findSubmissionById()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getSubmissionById',
