@@ -48,13 +48,6 @@ class ControllerValidator extends baseController
                 self::$paramVal = isset($_POST[$arg_1]) ? $_POST : '';
 
                 $resData = $model->$arg_2();
-
-                echo"<br>CONTROLLER DATA: " . print_r($resData) . "<br>";
-
-                /* create an assosiative array */
-                #$rawData = (array) json_decode(file_get_contents('php://input'), true);
-                #$resData = implode(",", $rawData);
-
             } catch (Exception $e) {
                 self::$errDescription = "Something went wrong :/ " . $e->getMessage();
                 self::$errHeader = "HTTP/1.1 500 Internal Server Error";
