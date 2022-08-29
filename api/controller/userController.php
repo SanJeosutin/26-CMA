@@ -83,12 +83,7 @@ class UserController extends BaseController
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'createUser',
-            'firstName',
-            'lastName',
-            'email',
-            'phoneNo',
-            'role'
+            'postNewUser',
         );
     }
 

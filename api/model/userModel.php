@@ -53,11 +53,13 @@ class UserModel extends Model
     /* POST IMPLEMENTATION */
     public function postNewUser()
     {
-        $arrValues = array();
-        
+        $arrValues = file_get_contents('php://input');
+
+        echo "ARR VALUES: " . $arrValues;
+
         return Model::POST($this->tableName, $arrValues);
     }
-    
+
     /* PUT IMPLEMENTATION */
     /*
     public function updateUserByFirstName($fName, $uId)
