@@ -55,8 +55,6 @@ class UserModel extends Model
     {
         $arrValues = file_get_contents('php://input');
 
-        echo "ARR VALUES: " . $arrValues;
-
         return Model::POST($this->tableName, $arrValues);
     }
 

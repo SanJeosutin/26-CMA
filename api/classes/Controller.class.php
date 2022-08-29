@@ -25,7 +25,6 @@ class ControllerValidator extends baseController
         /* check if 2nd param is a GET / POST / PUT / DELETE Request */
         if (strtoupper($arg_1) == 'GET') {
             try {
-                echo "GET REQUEST_METHOD";
                 /* get model class from 1st args */
                 $model = new $arg_0();
 
@@ -45,9 +44,6 @@ class ControllerValidator extends baseController
             }
         } elseif (strtoupper($arg_1) == 'POST') {
             try {
-                echo "POST REQUEST_METHOD<br>";
-
-
                 $model = new $arg_0();
                 self::$paramVal = isset($_POST[$arg_1]) ? $_POST : '';
 
