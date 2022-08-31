@@ -45,27 +45,9 @@ class ControllerValidator extends baseController
         } elseif (strtoupper($arg_1) == 'POST') {
             try {
                 $model = new $arg_0();
-                self::$paramVal = isset($_POST[$arg_1]) ? $_POST : '';
+                self::$paramVal = isset($_POST[$arg_3]) ? $_POST : '';
 
                 $resData = $model->$arg_2();
-            } catch (Exception $e) {
-                self::$errDescription = "Something went wrong :/ " . $e->getMessage();
-                self::$errHeader = "HTTP/1.1 500 Internal Server Error";
-            }
-        } elseif (strtoupper($arg_1) == 'PUT') {
-            try {
-                /*
-                 * CODE HERE 
-                */
-            } catch (Exception $e) {
-                self::$errDescription = "Something went wrong :/ " . $e->getMessage();
-                self::$errHeader = "HTTP/1.1 500 Internal Server Error";
-            }
-        } elseif (strtoupper($arg_1) == 'DELETE') {
-            try {
-                /*
-                 * CODE HERE 
-                */
             } catch (Exception $e) {
                 self::$errDescription = "Something went wrong :/ " . $e->getMessage();
                 self::$errHeader = "HTTP/1.1 500 Internal Server Error";
