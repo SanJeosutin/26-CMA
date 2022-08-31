@@ -17,63 +17,13 @@ class UserController extends BaseController
         );
     }
 
-    public function findUserById()
+    public function findUser()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'getUserById',
+            'getUser',
             'id'
-        );
-    }
-
-    public function findUserByFirstName()
-    {
-        ControllerValidator::ValidateRequest(
-            $this->methodClass,
-            $_SERVER['REQUEST_METHOD'],
-            'getUserByFirstName',
-            'firstName'
-        );
-    }
-
-    public function findUserByLastName()
-    {
-        ControllerValidator::ValidateRequest(
-            $this->methodClass,
-            $_SERVER['REQUEST_METHOD'],
-            'getUserByLastName',
-            'lastName'
-        );
-    }
-
-    public function findUserByEmail()
-    {
-        ControllerValidator::ValidateRequest(
-            $this->methodClass,
-            $_SERVER['REQUEST_METHOD'],
-            'getUserByEmail',
-            'email'
-        );
-    }
-
-    public function findUserByPhoneNo()
-    {
-        ControllerValidator::ValidateRequest(
-            $this->methodClass,
-            $_SERVER['REQUEST_METHOD'],
-            'getUserByPhoneNo',
-            'phoneNo'
-        );
-    }
-
-    public function findUserByRole()
-    {
-        ControllerValidator::ValidateRequest(
-            $this->methodClass,
-            $_SERVER['REQUEST_METHOD'],
-            'getUserByRole',
-            'role'
         );
     }
 
@@ -88,60 +38,23 @@ class UserController extends BaseController
     }
 
     /* PUT IMPLEMENTATION */
-    /*
-    public function updateUserByFirstName()
+    public function updateUser()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'updateUserByFirstName',
-            'firstName',
+            'updateUser',
             'id'
         );
     }
-
-    public function updateUserByLastName()
-    {
-        ControllerValidator::ValidateRequest(
-            $this->methodClass,
-            $_SERVER['REQUEST_METHOD'],
-            'updateUserByLastName',
-            'lastName',
-            'id'
-        );
-    }
-
-    public function updateUserByEmail()
-    {
-        ControllerValidator::ValidateRequest(
-            $this->methodClass,
-            $_SERVER['REQUEST_METHOD'],
-            'updateUserByEmail',
-            'email',
-            'id'
-        );
-    }
-
-    public function updateUserByPhoneNo()
-    {
-        ControllerValidator::ValidateRequest(
-            $this->methodClass,
-            $_SERVER['REQUEST_METHOD'],
-            'updateUserByPhoneNo',
-            'phoneNo',
-            'id'
-        );
-    }
-    */
 
     /* DELETE IMPLEMENTATION */
-
-    public function removeUserById()
+    public function removeUser()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'deleteUserById',
+            'deleteUser',
             'id'
         );
     }

@@ -14,41 +14,17 @@ class UserModel extends Model
 
     private $tableName = 'user';
 
-    /* GET IMPLEMENTATION */
     public function getUsers()
     {
         return Model::GET($this->tableName, 'UserId');
     }
-
-    public function getUserById($uID)
+    
+    /* GET IMPLEMENTATION */
+    public function getUser($uID)
     {
         return Model::GET($this->tableName, 'UserId', $uID);
     }
 
-    public function getUserByFirstName($fName)
-    {
-        return Model::GET($this->tableName, 'UserFirstName', $fName);
-    }
-
-    public function getUserByLastName($lName)
-    {
-        return Model::GET($this->tableName, 'UserLastName', $lName);
-    }
-
-    public function getUserByEmail($uEmail)
-    {
-        return Model::GET($this->tableName, 'UserEmail', $uEmail);
-    }
-
-    public function getUserByPhoneNo($uPhoneNo)
-    {
-        return Model::GET($this->tableName, 'UserPhoneNo', $uPhoneNo);
-    }
-
-    public function getUserByRole($uRole)
-    {
-        return Model::GET($this->tableName, 'UserRole', $uRole);
-    }
 
     /* POST IMPLEMENTATION */
     public function postNewUser()
@@ -59,31 +35,15 @@ class UserModel extends Model
     }
 
     /* PUT IMPLEMENTATION */
-    /*
-    public function updateUserByFirstName($fName, $uId)
+    public function updateUser($uId, $params = array())
     {
-        return Model::PUT($this->tableName, 'UserFirstName', $fName, $uId);
+        //! WORK IN PROGRESS
+        #return Model::POST($this->tableName, );
     }
-
-    public function updateUserByLastName($lName, $uId)
-    {
-        return Model::PUT($this->tableName, 'UserLastName', $lName, $uId);
-    }
-
-    public function updateUserByEmail($uEmail, $uId)
-    {
-        return Model::PUT($this->tableName, 'UserEmail', $uEmail, $uId);
-    }
-
-    public function updateUserByPhoneNo($uPhoneNo, $uId)
-    {
-        return Model::PUT($this->tableName, 'UserPhoneNo', $uPhoneNo, $uId);
-    }
-    */
 
     /* DELETE IMPLEMENTATION */
-    public function deleteUserById($uId)
+    public function deleteUser($uId)
     {
-        return Model::DELETE($this->tableName, 'UserId', $uId);
+        return Model::POST($this->tableName, 'UserId', $uId);
     }
 }
