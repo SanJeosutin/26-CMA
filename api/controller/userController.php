@@ -17,16 +17,66 @@ class UserController extends BaseController
         );
     }
 
-    public function findUser()
+    public function findUserById()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'getUser',
+            'getUserById',
             'id'
         );
     }
 
+    public function findUserByFirstName()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'getUserByFirstName',
+            'firstName'
+        );
+    }
+
+    public function findUserByLastName()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'getUserByLastName',
+            'lastName'
+        );
+    }
+
+    public function findUserByEmail()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'getUserByEmail',
+            'email'
+        );
+    }
+
+    public function findUserByPhoneNo()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'getUserByPhoneNo',
+            'phoneNo'
+        );
+    }
+
+    public function findUserByRole()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'getUserByRole',
+            'role'
+        );
+    }
+    
     /* POST IMPLEMENTATION */
     public function createUser()
     {

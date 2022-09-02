@@ -20,9 +20,34 @@ class UserModel extends Model
     }
     
     /* GET IMPLEMENTATION */
-    public function getUser($uID)
+    public function getUserById($uID)
     {
         return Model::GET($this->tableName, 'UserId', $uID);
+    }
+
+    public function getUserByFirstName($fName)
+    {
+        return Model::GET($this->tableName, 'UserFirstName', $fName);
+    }
+
+    public function getUserByLastName($lName)
+    {
+        return Model::GET($this->tableName, 'UserLastName', $lName);
+    }
+
+    public function getUserByEmail($uEmail)
+    {
+        return Model::GET($this->tableName, 'UserEmail', $uEmail);
+    }
+
+    public function getUserByPhoneNo($uPhoneNo)
+    {
+        return Model::GET($this->tableName, 'UserPhoneNo', $uPhoneNo);
+    }
+
+    public function getUserByRole($uRole)
+    {
+        return Model::GET($this->tableName, 'UserRole', $uRole);
     }
 
 
