@@ -30,8 +30,6 @@ class Model extends Database
         $val = array();
         $rawData = explode('&', urldecode($arg_1));
 
-        array_pop($rawData);
-
         foreach ($rawData as $data) {
             $temp = explode('=', $data);
             array_push($key, $temp[0]);
@@ -50,7 +48,6 @@ class Model extends Database
         $val = array();
 
         $rawData = explode('&', urldecode($arg_1));
-        array_pop($rawData);
 
         foreach ($rawData as $data) {
             $temp = explode('=', $data);
