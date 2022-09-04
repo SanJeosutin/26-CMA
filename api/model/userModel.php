@@ -60,15 +60,16 @@ class UserModel extends Model
     }
 
     /* PUT IMPLEMENTATION */
-    public function updateUser($uId, $params = array())
+    public function updateUser()
     {
-        //! WORK IN PROGRESS
-        #return Model::POST($this->tableName, );
+        $arrValues = file_get_contents('php://input');
+
+        return Model::PUT($this->tableName, $arrValues);
     }
 
     /* DELETE IMPLEMENTATION */
-    public function deleteUser($uId)
+    public function deleteUser()
     {
-        return Model::POST($this->tableName, 'UserId', $uId);
+        return Model::DELETE($this->tableName, 'UserId');
     }
 }

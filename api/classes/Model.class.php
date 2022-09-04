@@ -30,32 +30,44 @@ class Model extends Database
         $val = array();
         $rawData = explode('&', urldecode($arg_1));
 
+        array_pop($rawData);
+
         foreach ($rawData as $data) {
             $temp = explode('=', $data);
             array_push($key, $temp[0]);
             array_push($val, $temp[1]);
         }
-        
-
-        #return (new self)->select("INSERT INTO $arg_0 VALUES ($arg_1)");
 
         return (new self)->select("INSERT INTO $arg_0 (" . implode(', ', $key) . ") " . "VALUES ('" . implode("', '", $val) . "')");
     }
-
-    /*
-     ! -*-*-*-*-*-*NOTICE-*-*-*-*-*-*
-     -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-     ! The following methods are not yet tested.
-     ! You have been warn. 
-     -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
-     */
 
 
     static protected function PUT()
     {
         extract(func_get_args(), EXTR_PREFIX_ALL, "arg");
 
-        return (new self)->select("UPDATE $arg_0 SET $arg_1 WHERE $arg_2 LIKE ?", array('s', $arg_3));
+        $key = array();
+        $val = array();
+
+        $rawData = explode('&', urldecode($arg_1));
+        array_pop($rawData);
+
+        foreach ($rawData as $data) {
+            $temp = explode('=', $data);
+            array_push($key, $temp[0]);
+            array_push($val, $temp[1]);
+        }
+
+        $val = "'" . implode("' '", $val) . "'";
+        $val = explode(" ", $val);
+
+        $data = array_combine($key, $val);
+
+        $data = urldecode(http_build_query($data));
+        $data = explode("&", $data);
+        $id = array_shift($data);
+
+        return (new self)->select("UPDATE $arg_0 SET " . implode(', ', $data) . " WHERE $id");
     }
 
     static protected function DELETE()
@@ -63,5 +75,9 @@ class Model extends Database
         extract(func_get_args(), EXTR_PREFIX_ALL, "arg");
 
         return (new self)->select("DELETE FROM $arg_0 WHERE $arg_1 LIKE ?", array('s', $arg_2));
+    }
+
+    static private function formatData($data)
+    {
     }
 }

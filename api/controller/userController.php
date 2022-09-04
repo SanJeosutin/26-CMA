@@ -94,7 +94,6 @@ class UserController extends BaseController
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'updateUser',
-            'id'
         );
     }
 
@@ -105,7 +104,6 @@ class UserController extends BaseController
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'deleteUser',
-            'id'
         );
     }
 }

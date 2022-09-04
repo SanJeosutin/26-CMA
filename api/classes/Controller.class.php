@@ -22,40 +22,44 @@ class ControllerValidator extends baseController
         /* create a dynamic params */
         extract(func_get_args(), EXTR_PREFIX_ALL, "arg");
 
+        /* get model class from 1st args */
+        $model = new $arg_0();
+
         /* check if 2nd param is a GET / POST / PUT / DELETE Request */
-        if (strtoupper($arg_1) == 'GET') {
-            try {
-                /* get model class from 1st args */
-                $model = new $arg_0();
+        switch (strtoupper($arg_1)) {
+            case 'GET':
+                try {
+                    /* check if 4rd param exist, when so it'll find the value that are requested */
+                    if (isset($arg_3)) {
+                        self::$paramVal = isset($_GET[$arg_3]) ? $_GET[$arg_3] : '';
+                        $rawData = $model->$arg_2(self::$paramVal);
+                    } else {
+                        $rawData = $model->$arg_2();
+                    }
 
-                /* check if 4rd param exist, when so it'll find the value that are requested */
-                if (isset($arg_3)) {
-                    self::$paramVal = isset($_GET[$arg_3]) ? $_GET[$arg_3] : '';
-                    $rawData = $model->$arg_2(self::$paramVal);
-                } else {
-                    $rawData = $model->$arg_2();
+                    /* packed it into a nice json format :) */
+                    $resData = json_encode($rawData);
+                } catch (Exception $e) {
+                    self::$errDescription = "Something went wrong :/ " . $e->getMessage();
+                    self::$errHeader = "HTTP/1.1 500 Internal Server Error";
                 }
+                break;
 
-                /* packed it into a nice json format :) */
-                $resData = json_encode($rawData);
-            } catch (Exception $e) {
-                self::$errDescription = "Something went wrong :/ " . $e->getMessage();
-                self::$errHeader = "HTTP/1.1 500 Internal Server Error";
-            }
-        } elseif (strtoupper($arg_1) == 'POST') {
-            try {
-                $model = new $arg_0();
-                self::$paramVal = isset($_POST[$arg_3]) ? $_POST : '';
+            case 'POST':
+                try {
+                    $resData = $model->$arg_2();
+                } catch (Exception $e) {
+                    self::$errDescription = "Something went wrong :/ " . $e->getMessage();
+                    self::$errHeader = "HTTP/1.1 500 Internal Server Error";
+                }
+                break;
 
-                $resData = $model->$arg_2();
-            } catch (Exception $e) {
-                self::$errDescription = "Something went wrong :/ " . $e->getMessage();
-                self::$errHeader = "HTTP/1.1 500 Internal Server Error";
-            }
-        } else {
-            self::$errDescription = "Cannot process request with method " . $arg_1;
-            self::$errHeader = "HTTP/1.1 422 Unprocessable Entity";
+            default:
+                self::$errDescription = "Cannot process request with method " . $arg_1;
+                self::$errHeader = "HTTP/1.1 422 Unprocessable Entity";
+                break;
         }
+
 
         /* if no error rise, pass the data as raw json */
         if (!self::$errDescription) {
