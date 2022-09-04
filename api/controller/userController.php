@@ -93,7 +93,7 @@ class UserController extends BaseController
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'updateUser',
+            'putUser',
         );
     }
 

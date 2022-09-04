@@ -60,7 +60,7 @@ class UserModel extends Model
     }
 
     /* PUT IMPLEMENTATION */
-    public function updateUser()
+    public function putUser()
     {
         $arrValues = file_get_contents('php://input');
 
