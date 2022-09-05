@@ -68,8 +68,8 @@ class UserModel extends Model
     }
 
     /* DELETE IMPLEMENTATION */
-    public function deleteUser()
+    public function deleteUser($uID)
     {
-        return Model::DELETE($this->tableName, 'UserId');
+        return Model::DELETE($this->tableName, 'UserId', $uID);
     }
 }

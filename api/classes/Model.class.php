@@ -73,8 +73,4 @@ class Model extends Database
 
         return (new self)->select("DELETE FROM $arg_0 WHERE $arg_1 LIKE ?", array('s', $arg_2));
     }
-
-    static private function formatData($data)
-    {
-    }
 }
