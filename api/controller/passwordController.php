@@ -3,7 +3,7 @@
  * Password controller that containts conference methods
  * Refer to Controller class for more details
  */
-class reviewController extends BaseController
+class PasswordController extends BaseController
 {
     private $methodClass = 'PasswordModel';
 

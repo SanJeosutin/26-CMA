@@ -3,7 +3,7 @@
  * Conference controller that containts conference methods
  * Refer to Controller class for more details
  */
-class conferenceController extends BaseController
+class ConferenceController extends BaseController
 {
     private $methodClass = 'ConferenceModel';
 

@@ -4,10 +4,8 @@ require __DIR__ . '/inc/bootstrap.php';
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode('/', $uri);
 
-$validArgs = array('user', 'submission', 'conference', 'review');
+$validArgs = array('user', 'conference', 'submission', 'review' , 'registration', 'password');
 
-
-# http://localhost:3000/api/index.php/user/createUser?firstName=Jack&lastName=Brad&email=jack@brad.co&phoneNo=0445887662&role=Submitter
 
 # testing API only, will be removed later-ish
 if(isset($uri[3]) && !in_array($uri[3], $validArgs) || !isset($uri[4])){
@@ -21,4 +19,3 @@ $reflection = new ReflectionClass($uri[3].'Controller');
 $objFeedController = $reflection->newInstanceWithoutConstructor();
 $methodName = $uri[4]; 
 $objFeedController->{$methodName}();
-?>

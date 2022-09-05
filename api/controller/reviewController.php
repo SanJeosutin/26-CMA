@@ -3,7 +3,7 @@
  * Review controller that containts conference methods
  * Refer to Controller class for more details
  */
-class reviewController extends BaseController
+class ReviewController extends BaseController
 {
     private $methodClass = 'ReviewModel';
 

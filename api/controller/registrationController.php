@@ -3,7 +3,7 @@
  * Registration controller that containts conference methods
  * Refer to Controller class for more details
  */
-class reviewController extends BaseController
+class RegistrationController extends BaseController
 {
     private $methodClass = 'RegistrationModel';
 
