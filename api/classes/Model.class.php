@@ -58,20 +58,11 @@ class Model extends Database
         $val = "'" . implode("' '", $val) . "'";
         $val = explode(" ", $val);
 
-        echo "<br>KEY_ARR: <br>";
-        print_r($key);
-        echo "<br>VAL_ARR: <br>";
-        print_r($val);
-        echo "VAL : " . count($val) . " KEY : " . count($key);
-
         $data = array_combine($key, $val);
-
         $data = urldecode(http_build_query($data));
         $data = explode("&", $data);
+
         $id = array_shift($data);
-        echo "Final QUERY : <pre> ". 
-        "UPDATE $arg_0 SET " . implode(', ', $data) . " WHERE $id" 
-        ." </pre>";
 
         return (new self)->select("UPDATE $arg_0 SET " . implode(', ', $data) . " WHERE $id");
     }
