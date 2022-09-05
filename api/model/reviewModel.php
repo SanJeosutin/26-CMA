@@ -6,14 +6,8 @@ require_once ROOT_DIR . '/classes/Model.class.php';
  * Work mainly with ReviewController
  */
 class ReviewModel extends Model
-{
-  
+{  
     private $tableName = 'review';
-
-
-    /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-    // !    CURRENT IMPLEMENTATION 
-    /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
 
     /* GET IMPLEMENTATION */
     public function getReviews()
@@ -21,14 +15,24 @@ class ReviewModel extends Model
         return Model::GET($this->tableName, 'ReviewId');
     }
 
-    public function getReviewById($rId)
+    public function getReviewById($rID)
     {
-        return Model::GET($this->tableName, 'ReviewId', $rId);
+        return Model::GET($this->tableName, 'ReviewId', $rID);
+    }
+    
+    public function getReviewBySubmissionId($rSID)
+    {
+        return Model::GET($this->tableName, 'SubmissionId', $rSID);
     }
 
     public function getReviewByTimeStamp($rTimeStamp)
     {
         return Model::GET($this->tableName, 'ReviewTimestamp', $rTimeStamp);
+    }
+    
+    public function getReviewByComments($comments)
+    {
+        return Model::GET($this->tableName, 'ReviewComments', $comments);
     }
 
     public function getReviewByStatus($rStatus)
@@ -36,9 +40,25 @@ class ReviewModel extends Model
         return Model::GET($this->tableName, 'ReviewStatus', $rStatus);
     }
 
-    public function getReviewBySubId($rSubId)
+    /* POST IMPLEMENTATION */
+    public function postNewReview()
     {
-        return Model::GET($this->tableName, 'SubmissionId', $rSubId);
+        $arrValues = file_get_contents('php://input');
+
+        return Model::GET($this->tableName, $arrValues);
     }
 
+    /* PUT IMPLEMENTATION */
+    public function putReview()
+    {
+        $arrValues = file_get_contents('php://input');
+
+        return Model::PUT($this->tableName, $arrValues);
+    }
+
+    /* DELETE IMPLEMENTATION */
+    public function deleteReview($rID)
+    {
+        return Model::DELETE($this->tableName, 'ReviewId', $rID);
+    }
 }

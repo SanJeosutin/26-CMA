@@ -7,15 +7,10 @@ class conferenceController extends BaseController
 {
     private $methodClass = 'ConferenceModel';
 
-    /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-    // !    CURRENT IMPLEMENTATION 
-    /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-
     /* GET IMPLEMENTATION */
-
     public function list()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getConferences'
@@ -24,7 +19,7 @@ class conferenceController extends BaseController
 
     public function findConferenceById()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getConferenceById',
@@ -34,7 +29,7 @@ class conferenceController extends BaseController
 
     public function findConferenceByTitle()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getConferenceByTitle',
@@ -44,7 +39,7 @@ class conferenceController extends BaseController
 
     public function findConferenceByTimeStamp()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getConferenceByTimeStamp',
@@ -54,7 +49,7 @@ class conferenceController extends BaseController
 
     public function findConferenceByLocation()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getConferenceByLocation',
@@ -64,13 +59,42 @@ class conferenceController extends BaseController
 
     public function findConferenceByRegFee()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'getConferenceByRegFee',
-            'regfee'
+            'getConferenceByRegistrationFee',
+            'fee'
         );
     }
 
-    
+    /* POST IMPLEMENTATION */
+    public function createConference()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'postNewConference',
+        );
+    }
+
+    /* PUT IMPLEMENTATION */
+    public function updateConference()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'putConference',
+        );
+    }
+
+    /* DELETE IMPLEMENTATION */
+    public function removeConference()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'deleteConference',
+            'id'
+        );
+    }
 }

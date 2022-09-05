@@ -47,6 +47,16 @@ class UserController extends BaseController
         );
     }
 
+    public function findUserByDOB()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'getUserByDOB',
+            'dob'
+        );
+    }
+
     public function findUserByEmail()
     {
         ControllerValidator::ValidateRequest(

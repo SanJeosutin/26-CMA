@@ -7,15 +7,10 @@ class reviewController extends BaseController
 {
     private $methodClass = 'ReviewModel';
 
-    /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-    // !    CURRENT IMPLEMENTATION 
-    /*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=*/
-
     /* GET IMPLEMENTATION */
-
     public function list()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getReviews'
@@ -24,17 +19,27 @@ class reviewController extends BaseController
 
     public function findReviewById()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getReviewById',
             'id'
         );
     }
+    
+    public function findReviewBySubmissionId()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'getReviewBySubmissionId',
+            'id'
+        );
+    }
 
     public function findReviewByTimeStamp()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getReviewByTimeStamp',
@@ -42,9 +47,19 @@ class reviewController extends BaseController
         );
     }
 
+    public function findReviewByComments()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'getReviewByComments',
+            'status'
+        );
+    }
+
     public function findReviewByStatus()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getReviewByStatus',
@@ -52,14 +67,36 @@ class reviewController extends BaseController
         );
     }
 
-    public function findReviewBySubId()
+    /* POST IMPLEMENTATION */
+    public function createReview()
     {
-        ControllerValidator::ValidateRequestGET(
+        ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'getReviewBySubId',
-            'subid'
+            'postNewReview',
         );
     }
+
+    /* PUT IMPLEMENTATION */
+    public function updateReview()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'putReview',
+        );
+    }
+
+    /* DELETE IMPLEMENTATION */
+    public function removeReview()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'deleteReview',
+            'id'
+        );
+    }
+
     
 }

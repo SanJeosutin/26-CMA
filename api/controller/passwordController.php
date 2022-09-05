@@ -1,88 +1,79 @@
 <?php
 /*
- * Submission controller that containts user methods
+ * Password controller that containts conference methods
  * Refer to Controller class for more details
  */
-class SubmissionController extends BaseController
+class reviewController extends BaseController
 {
-    private $methodClass = 'SubmissionModel';
-    
+    private $methodClass = 'PasswordModel';
+
+    /* GET IMPLEMENTATION */
     public function list()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'getSubmissions'
+            'getPasswords'
         );
     }
 
-    public function findSubmissionById()
+    public function findPasswordByUserId()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'getSubmissionById',
+            'getPasswordByUserId',
             'id'
-        );
-    }
-
-    public function findSubmissionByUserId()
-    {
-        ControllerValidator::ValidateRequest(
-            $this->methodClass,
-            $_SERVER['REQUEST_METHOD'],
-            'getSubmissionByUserId',
-            'id'
-        );
-    }
-
-    public function findSubmissionByTimeStamp()
-    {
-        ControllerValidator::ValidateRequest(
-            $this->methodClass,
-            $_SERVER['REQUEST_METHOD'],
-            'SubmissionTimestamp',
-            'timestamp'
-        );
-    }
-
-    public function findSubmissionByPath()
-    {
-        ControllerValidator::ValidateRequest(
-            $this->methodClass,
-            $_SERVER['REQUEST_METHOD'],
-            'getSubmissionByPath',
-            'path'
         );
     }
     
-    /* POST IMPLEMENTATION */
-    public function createSubmission()
+    public function findPasswordBySalt()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'postNewSubmission',
+            'getPasswordBySalt',
+            'salt'
+        );
+    }
+
+    public function findPasswordByHash()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'getPasswordByHash',
+            'hash'
+        );
+    }
+
+    /* POST IMPLEMENTATION */
+    public function createPassword()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'postNewPassword',
         );
     }
 
     /* PUT IMPLEMENTATION */
-    public function updateSubmission()
+    public function updatePassword()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'putSubmission',
+            'putPassword',
         );
     }
 
     /* DELETE IMPLEMENTATION */
-    public function removeSubmission()
+    public function removePassword()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'deleteSubmission',
+            'deletePassword',
             'id'
         );
     }

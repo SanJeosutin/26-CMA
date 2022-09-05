@@ -35,6 +35,11 @@ class UserModel extends Model
         return Model::GET($this->tableName, 'UserLastName', $lName);
     }
 
+    public function getUserByDOB($dob)
+    {
+        return Model::GET($this->tableName, 'UserDOB', $dob);
+    }
+
     public function getUserByEmail($uEmail)
     {
         return Model::GET($this->tableName, 'UserEmail', $uEmail);

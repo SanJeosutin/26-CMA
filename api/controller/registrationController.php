@@ -1,88 +1,99 @@
 <?php
 /*
- * Submission controller that containts user methods
+ * Registration controller that containts conference methods
  * Refer to Controller class for more details
  */
-class SubmissionController extends BaseController
+class reviewController extends BaseController
 {
-    private $methodClass = 'SubmissionModel';
-    
+    private $methodClass = 'RegistrationModel';
+
+    /* GET IMPLEMENTATION */
     public function list()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'getSubmissions'
+            'getRegistrations'
         );
     }
 
-    public function findSubmissionById()
+    public function findRegistrationById()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'getSubmissionById',
+            'getRegistrationById',
+            'id'
+        );
+    }
+    
+    public function findRegistrationByUserId()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'getRegistrationByUserId',
             'id'
         );
     }
 
-    public function findSubmissionByUserId()
+    public function findRegistrationByConferenceId()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'getSubmissionByUserId',
+            'getRegistrationByConferenceId',
             'id'
         );
     }
 
-    public function findSubmissionByTimeStamp()
+    public function findRegistrationByTimeStamp()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'SubmissionTimestamp',
+            'getRegistrationByTimeStamp',
             'timestamp'
         );
     }
 
-    public function findSubmissionByPath()
+    public function findRegistrationByFeePaid()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'getSubmissionByPath',
-            'path'
+            'getRegistrationByFeePaid',
+            'feePaid'
         );
     }
-    
+
     /* POST IMPLEMENTATION */
-    public function createSubmission()
+    public function createRegistration()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'postNewSubmission',
+            'postNewRegistration',
         );
     }
 
     /* PUT IMPLEMENTATION */
-    public function updateSubmission()
+    public function updateRegistration()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'putSubmission',
+            'putRegistration',
         );
     }
 
     /* DELETE IMPLEMENTATION */
-    public function removeSubmission()
+    public function removeRegistration()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'deleteSubmission',
+            'deleteRegistration',
             'id'
         );
     }

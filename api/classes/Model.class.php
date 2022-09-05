@@ -56,7 +56,8 @@ class Model extends Database
         }
 
         $val = "'" . implode("' '", $val) . "'";
-        $val = explode(" ", $val);
+        $val = explode(" ", $val); //? <<<<<<<<
+        //? Bugs where if a string that are being processed containts a space character
 
         $data = array_combine($key, $val);
         $data = urldecode(http_build_query($data));
