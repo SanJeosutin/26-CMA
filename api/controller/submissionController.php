@@ -41,7 +41,7 @@ class SubmissionController extends BaseController
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'SubmissionTimestamp',
+            'getSubmissionByTimeStamp',
             'timestamp'
         );
     }
