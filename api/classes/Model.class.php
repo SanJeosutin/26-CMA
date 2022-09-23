@@ -18,7 +18,7 @@ class Model extends Database
             return (new self)->select("SELECT * FROM $arg_0 ORDER BY $arg_1 ASC");
         }
 
-        return (new self)->select("SELECT * FROM $arg_0 WHERE $arg_1 LIKE ?", array('s', $arg_2));
+        return (new self)->select("SELECT * FROM $arg_0 WHERE $arg_1 LIKE ?", array('s', '%'.$arg_2.'%'));
     }
 
 
