@@ -52,11 +52,11 @@ class Model extends Database
         foreach ($rawData as $data) {
             $temp = explode('=', $data);
             array_push($key, $temp[0]);
-            array_push($val, $temp[1]);
+            array_push($val, "'".$temp[1]."'");
         }
 
-        $val = "'" . implode("' '", $val) . "'";
-        $val = explode(" ", $val); //? <<<<<<<<
+        //$val = "'" . implode("' '", $val) . "'";
+        //$val = explode(" ", $val); //? <<<<<<<<
         //? Bugs where if a string that are being processed containts a space character
 
         $data = array_combine($key, $val);
