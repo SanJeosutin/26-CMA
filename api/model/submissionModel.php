@@ -30,7 +30,7 @@ class SubmissionModel extends Model
         return Model::GET($this->tableName, 'UserId', $uID);
     }
 
-    public function getSubmissionByTimeStamp($timestamp)
+    public function getfindSubmissionByTimestamp($timestamp)
     {
         return Model::GET($this->tableName, 'SubmissionTimestamp', $timestamp);
     }

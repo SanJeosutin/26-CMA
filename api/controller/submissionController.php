@@ -36,12 +36,12 @@ class SubmissionController extends BaseController
         );
     }
 
-    public function findSubmissionByTimeStamp()
+    public function findfindSubmissionByTimestamp()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'getSubmissionByTimeStamp',
+            'getfindSubmissionByTimestamp',
             'timestamp'
         );
     }
