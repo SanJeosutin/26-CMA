@@ -45,7 +45,7 @@ class ReviewModel extends Model
     {
         $arrValues = file_get_contents('php://input');
 
-        return Model::GET($this->tableName, $arrValues);
+        return Model::POST($this->tableName, $arrValues);
     }
 
     /* PUT IMPLEMENTATION */

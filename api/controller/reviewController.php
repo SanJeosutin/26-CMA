@@ -53,7 +53,7 @@ class ReviewController extends BaseController
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
             'getReviewByComments',
-            'status'
+            'comments'
         );
     }
 
