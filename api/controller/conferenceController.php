@@ -57,16 +57,6 @@ class ConferenceController extends BaseController
         );
     }
 
-    public function findConferenceByRegFee()
-    {
-        ControllerValidator::ValidateRequest(
-            $this->methodClass,
-            $_SERVER['REQUEST_METHOD'],
-            'getConferenceByRegistrationFee',
-            'fee'
-        );
-    }
-
     /* POST IMPLEMENTATION */
     public function createConference()
     {

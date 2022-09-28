@@ -36,6 +36,16 @@ class SubmissionController extends BaseController
         );
     }
 
+    public function findSubmissionByConferenceId()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'getSubmissionByConferenceId',
+            'id'
+        );
+    }
+
     public function findfindSubmissionByTimestamp()
     {
         ControllerValidator::ValidateRequest(
@@ -53,6 +63,16 @@ class SubmissionController extends BaseController
             $_SERVER['REQUEST_METHOD'],
             'getSubmissionByPath',
             'path'
+        );
+    }
+
+    public function findSubmissionByStatus()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'getSubmissionByStatus',
+            'status'
         );
     }
     

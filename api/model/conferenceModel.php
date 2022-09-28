@@ -36,11 +36,6 @@ class ConferenceModel extends Model
         return Model::GET($this->tableName, 'ConferenceLocation', $cLocation);
     }
 
-    public function getConferenceByRegistrationFee($cRegFee)
-    {
-        return Model::GET($this->tableName, 'ConferenceRegFee', $cRegFee);
-    }
-
     /* POST IMPLEMENTATION */
     public function postNewConference()
     {

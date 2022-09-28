@@ -36,9 +36,9 @@ class RegistrationModel extends Model
         return Model::GET($this->tableName, 'RegistrationTimeStamp', $rTimeStamp);
     }
 
-    public function getRegistrationByFeePaid($rFeePaid)
+    public function getRegistrationByAttendance($rAttendance)
     {
-        return Model::GET($this->tableName, 'RegistrationFeePaid', $rFeePaid);
+        return Model::GET($this->tableName, 'RegistrationAttendance', $rAttendance);
     }
 
     /* POST IMPLEMENTATION */

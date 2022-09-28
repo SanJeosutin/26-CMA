@@ -86,6 +86,16 @@ class UserController extends BaseController
             'role'
         );
     }
+
+    public function findUserByActiveAccount()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'getUserByActiveAccount',
+            'activeAccount'
+        );
+    }
     
     /* POST IMPLEMENTATION */
     public function createUser()

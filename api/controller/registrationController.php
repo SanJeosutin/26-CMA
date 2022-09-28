@@ -57,13 +57,13 @@ class RegistrationController extends BaseController
         );
     }
 
-    public function findRegistrationByFeePaid()
+    public function findRegistrationByAttendance()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'getRegistrationByFeePaid',
-            'feePaid'
+            'getRegistrationByAttendance',
+            'attendance'
         );
     }
 

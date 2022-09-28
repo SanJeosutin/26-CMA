@@ -30,6 +30,11 @@ class SubmissionModel extends Model
         return Model::GET($this->tableName, 'UserId', $uID);
     }
 
+    public function getSubmissionByConferenceId($cID)
+    {
+        return Model::GET($this->tableName, 'ConferenceId', $cID);
+    }
+
     public function getfindSubmissionByTimestamp($timestamp)
     {
         return Model::GET($this->tableName, 'SubmissionTimestamp', $timestamp);
@@ -38,6 +43,11 @@ class SubmissionModel extends Model
     public function getSubmissionByPath($path)
     {
         return Model::GET($this->tableName, 'SubmissionPath', $path);
+    }
+
+    public function getSubmissionByStatus($status)
+    {
+        return Model::GET($this->tableName, 'SubmissionStatus', $status);
     }
 
     /* POST IMPLEMENTATION */

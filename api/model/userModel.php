@@ -55,6 +55,11 @@ class UserModel extends Model
         return Model::GET($this->tableName, 'UserRole', $uRole);
     }
 
+    public function getUserByActiveAccount($uActive)
+    {
+        return Model::GET($this->tableName, 'UserActive', $uActive);
+    }
+
 
     /* POST IMPLEMENTATION */
     public function postNewUser()
