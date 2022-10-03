@@ -30,6 +30,11 @@ class SubmissionModel extends Model
         return Model::GET($this->tableName, 'UserId', $uID);
     }
 
+    public function getSubmissionByReviewerId($rID)
+    {
+        return Model::GET($this->tableName, 'ReviewerId', $rID);
+    }
+
     public function getSubmissionByConferenceId($cID)
     {
         return Model::GET($this->tableName, 'ConferenceId', $cID);

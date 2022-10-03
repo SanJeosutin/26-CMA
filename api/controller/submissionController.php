@@ -36,6 +36,16 @@ class SubmissionController extends BaseController
         );
     }
 
+    public function findSubmissionByReviewerId()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'getSubmissionByReviewerId',
+            'id'
+        );
+    }
+
     public function findSubmissionByConferenceId()
     {
         ControllerValidator::ValidateRequest(
