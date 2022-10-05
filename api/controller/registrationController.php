@@ -73,7 +73,7 @@ class RegistrationController extends BaseController
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'postNewRegistration',
+            'postNewRegistration'
         );
     }
 
@@ -83,7 +83,7 @@ class RegistrationController extends BaseController
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'putRegistration',
+            'putRegistration'
         );
     }
 

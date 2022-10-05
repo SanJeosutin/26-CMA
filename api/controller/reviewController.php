@@ -73,7 +73,7 @@ class ReviewController extends BaseController
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'postNewReview',
+            'postNewReview'
         );
     }
 
@@ -83,7 +83,7 @@ class ReviewController extends BaseController
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'putReview',
+            'putReview'
         );
     }
 

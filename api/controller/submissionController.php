@@ -92,7 +92,7 @@ class SubmissionController extends BaseController
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'postNewSubmission',
+            'postNewSubmission'
         );
     }
 
@@ -102,7 +102,7 @@ class SubmissionController extends BaseController
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'putSubmission',
+            'putSubmission'
         );
     }
 

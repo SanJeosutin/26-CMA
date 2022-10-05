@@ -103,7 +103,7 @@ class UserController extends BaseController
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'postNewUser',
+            'postNewUser'
         );
     }
 
@@ -113,7 +113,7 @@ class UserController extends BaseController
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'putUser',
+            'putUser'
         );
     }
 

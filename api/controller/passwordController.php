@@ -53,7 +53,7 @@ class PasswordController extends BaseController
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'postNewPassword',
+            'postNewPassword'
         );
     }
 
@@ -63,7 +63,7 @@ class PasswordController extends BaseController
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'putPassword',
+            'putPassword'
         );
     }
 

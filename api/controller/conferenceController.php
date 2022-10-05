@@ -63,7 +63,7 @@ class ConferenceController extends BaseController
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'postNewConference',
+            'postNewConference'
         );
     }
 
@@ -73,7 +73,7 @@ class ConferenceController extends BaseController
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'putConference',
+            'putConference'
         );
     }
 
