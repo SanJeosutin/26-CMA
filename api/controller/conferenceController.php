@@ -37,12 +37,22 @@ class ConferenceController extends BaseController
         );
     }
 
-    public function findConferenceByTimeStamp()
+    public function findConferenceByStartTimestamp()
     {
         ControllerValidator::ValidateRequest(
             $this->methodClass,
             $_SERVER['REQUEST_METHOD'],
-            'getConferenceByTimeStamp',
+            'getConferenceByStartTimestamp',
+            'timestamp'
+        );
+    }
+
+    public function findConferenceByEndTimestamp()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'getConferenceByEndTimestamp',
             'timestamp'
         );
     }
@@ -54,6 +64,16 @@ class ConferenceController extends BaseController
             $_SERVER['REQUEST_METHOD'],
             'getConferenceByLocation',
             'location'
+        );
+    }
+
+    public function findConferenceByStatus()
+    {
+        ControllerValidator::ValidateRequest(
+            $this->methodClass,
+            $_SERVER['REQUEST_METHOD'],
+            'getConferenceByStatus',
+            'status'
         );
     }
 

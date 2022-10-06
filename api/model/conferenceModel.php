@@ -26,9 +26,14 @@ class ConferenceModel extends Model
         return Model::GET($this->tableName, 'ConferenceTitle', $cTitle);
     }
 
-    public function getConferenceByTimeStamp($cTimeStamp)
+    public function getConferenceByStartTimestamp($cTimeStamp)
     {
-        return Model::GET($this->tableName, 'ConferenceTimestamp', $cTimeStamp);
+        return Model::GET($this->tableName, 'ConferenceStartTimestamp', $cTimeStamp);
+    }
+
+    public function getConferenceByEndTimestamp($cTimeStamp)
+    {
+        return Model::GET($this->tableName, 'ConferenceEndTimestamp', $cTimeStamp);
     }
 
     public function getConferenceByLocation($cLocation)
@@ -36,6 +41,11 @@ class ConferenceModel extends Model
         return Model::GET($this->tableName, 'ConferenceLocation', $cLocation);
     }
 
+    public function getConferenceByStatus($cStatus)
+    {
+        return Model::GET($this->tableName, 'ConferenceStatus', $cStatus);
+    }
+    
     /* POST IMPLEMENTATION */
     public function postNewConference()
     {
