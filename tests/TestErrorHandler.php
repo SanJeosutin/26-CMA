@@ -155,6 +155,67 @@ final class TestErrorHandler extends TestCase
         // Valid location
         $this->assertTrue(ErrorHandler::validatecLocation("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
     }
+
+    public function testConferenceDate() : void
+    {
+        // Empty Date
+        $err = "Please enter a conference Date/link";
+        $actual = ErrorHandler::validateDate("");
+        $this->assertStringMatchesFormat($err, $actual);
+
+        // Valid location
+        $this->assertTrue(ErrorHandler::validateDate"https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+    }
+
+    public function testConferenceTime() : void
+    {
+        // Empty Time
+        // There isnt much validation for whats there
+        $err = "Please enter a conference Date/link";
+        $actual = ErrorHandler::validateTime("");
+        $this->assertStringMatchesFormat($err, $actual);
+
+        // Valid location
+        $this->assertTrue(ErrorHandler::validateTime("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+    }
+
+    public function testConferenceStartTime() : void
+    {
+        // Empty Time
+        // There isnt much validation for whats there
+        $err = "Please enter a conference Date/link";
+        $actual = ErrorHandler::validateCStartTime("");
+        $this->assertStringMatchesFormat($err, $actual);
+
+        // Valid location
+        $this->assertTrue(ErrorHandler::validateCStartTime(""));
+    }
+
+    public function testConferenceEndTime() : void
+    {
+        // Empty Time
+        // There isnt much validation for whats there
+        $err = "Please enter a conference Date/link";
+        $actual = ErrorHandler::validateCEndTime("");
+        $this->assertStringMatchesFormat($err, $actual);
+
+        // Valid location
+        $this->assertTrue(ErrorHandler::validateCEndTime("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+    }
+
+    public function testConferenceCTime() : void
+    {
+        // Empty Time
+        // There isnt much validation for whats there
+        $err = "Please enter a conference Date/link";
+        $actual = ErrorHandler::invalidCTime("");
+        $this->assertStringMatchesFormat($err, $actual);
+
+        // Valid location
+        $this->assertTrue(ErrorHandler::validateCEndTime("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+    }
+    
 }
+
 
 ?>
