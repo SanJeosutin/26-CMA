@@ -22,6 +22,7 @@ $(document).ready(function () {
 
         var rawID = event.target.id;
         var tableID = "#field-".concat(rawID);
+        var id = rawID.split("-").pop();
 
         if (rawID.includes('edit')) {
             switch (curentPath) {
@@ -30,10 +31,11 @@ $(document).ready(function () {
                     break;
 
                 case "/profile":
+                    $('#uPass-'.concat(id)).val(""); 
                     editProfileData(rawID, tableID);
                     break;
 
-                case "/manageEvents": 
+                case "/manageConferences": 
                     editConferenceData(rawID, tableID);
                 break; 
             }
@@ -45,7 +47,7 @@ $(document).ready(function () {
                     disableUserData(rawID, tableID);
                     break;
 
-                case "/manageEvents":
+                case "/manageConferences":
                     disableConferenceData(rawID, tableID, "disable", "0");
                     break;
             }
@@ -53,7 +55,7 @@ $(document).ready(function () {
 
         if (rawID.includes('enable')) {
             switch (curentPath) {
-                case "/manageEvents":
+                case "/manageConferences":
                     disableConferenceData(rawID, tableID, "enable", "1");
                     break;
             }

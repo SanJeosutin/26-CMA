@@ -3,8 +3,10 @@ require_once "./classes/dbAPI.class.php";
 require_once "./classes/user.class.php";
 require_once "./classes/validator.class.php";
 require_once "./classes/idGenerator.class.php";
+require_once "./classes/mail.class.php";
 
 $db = new Database();
+$mail = new Mail();
 
 if (isset($_POST['register'])) {
     $role = Validator::sanitise($_POST['role']);
@@ -12,9 +14,11 @@ if (isset($_POST['register'])) {
     $fname = Validator::sanitise($_POST["uFirstName"]);
     $lname = Validator::sanitise($_POST["uLastName"]);
     $pwd = IDGenerator::password($fname, $lname);
+    $dob = '1970-01-01';
+    $phoneno = '0441234567';
 
     // Ill leave the prefilled fields unless we want have the admin manually put them in
-    $user = new User($fname, $lname, '1970-01-01', $email, '0441234567', $pwd, $pwd, array());
+    $user = new User($fname, $lname, $dob, $email, $phoneno, $pwd, $pwd, array());
     $user->validateAdminCreateUser();
     $errs = $user->get_err();
 
@@ -30,7 +34,8 @@ if (isset($_POST['register'])) {
                 $dob,
                 strtolower($email),
                 $phoneno,
-                $role
+                $role,
+                '1'
             );
 
             $db->createPassword(
@@ -40,32 +45,21 @@ if (isset($_POST['register'])) {
             );
         }
 
-        // For now the email bit will be commented out to test the toasts by themselves
-        /*
-        $to = $_POST['email'];
-        $headers = "MIME-Version: 1.0" . "\r\n";
-        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $subject = 'C-SMS Account';
-        $message = '
-                    <h5> Hi there! </h5>
-                    <p>Your new C-SMS account has been successfully created!</p>
-                    <p>Thank you for being a part of our ever growing community.</p>
-                    <p>We have attached your credential below. Don\'t forget to change your password as soon as possible!</p>
-                    <pre>';
-        $message .= '   email   : ' . $email .
-            '   password: ' . $password .
-            '</pre>';
-
-        $message .= ' <p> - Regards, C-SMS Team.</p>';
-
-        mail($to, $subject, $message, $headers);
-
-        echo $email, $password;
-        */
+        $subject = 'C_SMS Account';
+        $body = '
+                <h5> Hi there! </h5>
+                <p>Your new C-SMS account has been successfully created!</p>
+                <p>Thank you for being a part of our ever growing community.</p>
+                <p>We have attached your credential below. Don\'t forget to change your password as soon as possible!</p>
+                <pre>   role    : ' . $role .
+                '       email   : ' . $email .
+                '       password: ' . $pwd . '</pre>
+                <p> - Regards, C-SMS Team.</p>
+                ';
+        $mail->SendMail($email, $subject, $body);
 
         Validator::displaySuccessfulToast();
-    }
-    else {
+    } else {
         Validator::displayErrorToasts($errs);
     }
 }
